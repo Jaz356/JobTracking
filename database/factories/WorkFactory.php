@@ -19,7 +19,7 @@ class WorkFactory extends Factory
         return [
             //
             'company' => fake() -> faker -> company(),
-            'workapply' => fake()-> url(),
+            'workapply' => fake()-> faker -> url(),
         ];
     }
 }

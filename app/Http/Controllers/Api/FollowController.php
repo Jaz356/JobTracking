@@ -14,6 +14,8 @@ class FollowController extends Controller
     public function index()
     {
         //
+        $work = Work::get();
+        return response()->json($work, 200);   
     }
 
     /**
@@ -55,6 +57,10 @@ class FollowController extends Controller
             'message' => 'Correctly Added Details',
             'work' => $work->load('follows'),
             ]);
+
+            $work->save();
+            return response()->json($work, 200);
+
     }
 
     /**
@@ -79,6 +85,15 @@ class FollowController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $Work = Work::find($id);
+
+        $Work->update([
+            'name' => $request->name,
+            'price' => $request->price,
+        ]);
+
+        $Work->save();
+        return response()->json($Work, 200);
     }
 
     /**
@@ -87,5 +102,7 @@ class FollowController extends Controller
     public function destroy(string $id)
     {
         //
+        $Work = Work::find($id);
+        $Work->delete();
     }
 }

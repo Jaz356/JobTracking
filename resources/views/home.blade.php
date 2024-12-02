@@ -7,7 +7,9 @@
                     <tr>
                         <th scope="col">Work Apply</th>
                         <th scope="col">Company</th>
-                        <th scope="col">Offer End</th>
+                        <th scope="col">Created</th>
+                        <th scope="col">Updated</th>
+                        <th scope="col">Offer End</th>        
                     </tr>
                 </thead>
                 <tbody>
