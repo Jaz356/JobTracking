@@ -2,12 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\Work;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class WorkFactory extends Factory
+class FollowFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,10 +19,8 @@ class WorkFactory extends Factory
     {
         return [
             //
-            'company' => $this-> faker -> company(),
-            'workapply' => $this-> faker -> jobTitle(),
-            'status' => $this-> faker -> randomElement(["completed","in progress"]),
-            'url' => $this-> faker -> url(),
+            'news'=> $this-> faker-> text(),
+            'work_id'=> Work::all()->random()->id,   
         ];
     }
 }

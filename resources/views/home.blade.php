@@ -5,11 +5,12 @@
             <table class="table table-striped table-bordered border-primary">
                 <thead>
                     <tr>
-                        <th scope="col">Work Apply</th>
-                        <th scope="col">Company</th>
+                        <th scope="col">Id</th>
                         <th scope="col">Created</th>
                         <th scope="col">Updated</th>
-                        <th scope="col">Offer End</th>        
+                        <th scope="col">Company</th>
+                        <th scope="col">Work Apply</th>
+                        <th scope="col">Follows</th>        
                     </tr>
                 </thead>
                 <tbody>

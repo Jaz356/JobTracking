@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
-use App\Http\Controllers\Follow;
 use Tests\TestCase;
 use App\Models\Work;
+use App\Models\Follow;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class WorkTest extends TestCase

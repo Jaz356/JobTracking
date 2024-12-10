@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Http\Controllers\Follow;
+use App\Models\Follow;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -14,6 +14,9 @@ class Work extends Model
 protected $fillable = [
      'company',
      'workapply',
+     'status',
+     'url',
+
      
      ];
 

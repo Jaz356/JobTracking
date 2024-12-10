@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\Work;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class OfferController extends Controller
+class WorkController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,8 +33,10 @@ class OfferController extends Controller
     {
         //
         $Work = Work::create([
-            'company' => $request->entry,
-            'workapply' => $request->joboffers
+            'company' => $request->company,
+            'workapply' => $request->workapply,
+            'url' => $request->url,
+            'status' => $request->status,
         ]);
         $Work->save();
         return response()->json($Work, 200);
@@ -45,15 +48,17 @@ class OfferController extends Controller
     public function show(string $id)
     {
         //
+        $Work = Work::find($id);
+        return response ()->json($Work, 200);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
+   //  public function edit(string $id)
+    // {
         //
-    }
+  //  }
 
     /**
      * Update the specified resource in storage.
@@ -64,8 +69,10 @@ class OfferController extends Controller
         $work = Work::find($id);
 
         $work->update([
-            'company' => $request->entry,
-            'workapply' => $request->joboffers
+            'company' => $request->company,
+            'workapply' => $request->workapply,
+            'url' => $request->url,
+            'status' => $request->status,
         ]);
 
         $work->save();

@@ -1,19 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Models;
 
 use App\Models\Work;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 
 class Follow extends Model
 {
-    /**
-     * Display a listing of the resource.
-     */
+    use HasFactory;
     protected $fillable =[
-        'works_id',
+        'work_id',
         'news',
     ];
     public function work(){

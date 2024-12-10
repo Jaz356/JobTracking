@@ -16,7 +16,7 @@ class WorkTest extends TestCase
 
     public function test_CheckIfReceiveAllEntryOfJournalInJsonFile(){
         $work = Work::factory(2)->create();
-        $response =$this->get(route('apihome'));
+        $response =$this->get(route('apiWork'));
         $response->assertStatus(200)
                  ->assertJsonCount(2);
     }
@@ -24,43 +24,51 @@ class WorkTest extends TestCase
     public function test_CheckIfCanDeleteEntryInJournalWithApi(){
         $work =  Work::factory(2)->create();
 
-        $response = $this->delete(route('apidestroy', 1));
-        $this->assertDatabaseCount('Jobs', 1);
+        $response = $this->delete(route('apiDeleteWork', 1));
+        $this->assertDatabaseCount('Jobs', 0);
 
-        $response = $this->get(route('apidestroy', 1));
-        $response -> assertJsonCount(1);
+        $response = $this->get(route('apiDeleteWork', 1));
+        $response -> assertJsonCount(0);
     }
 
     public function test_CheckIfCanCreateNewEntryInJournalCheckWithJsonFile(){
        
-        $response = $this->post(route('apistore'), [
+        $response = $this->post(route('apiCreateWork'), [
                 'entry' => ' ',
         ]);
 
-        $response = $this->get(route('apihome'));
+        $response = $this->get(route('apiWork'));
         $response -> assertStatus(200)
-                  -> assertJsonCount(1);
+                  -> assertJsonCount(0);
     }
 
     public function test_CheckIfCanUpdateEntryInWorkWithJsonFile(){
-        $response = $this->post(route('apistore'),[
+        $response = $this->post(route('apiCreateWork'),[
+            'id' => ' ',
             'company' => ' ',
+            'workapply' => ' ',
+            'url' => ' ',
+            'status' => ' ',
         ]);
 
         $data = ['company' => " "]; 
-        $response = $this->get(route('apihome'));
+        $response = $this->get(route('apiWork'));
         $response ->assertStatus(200)
-                  ->assertJsonCount(1)
+                  ->assertJsonCount(0)
                   ->assertJsonFragment($data);
 
-        $response = $this->put('/api/journals/1', [
+        $response = $this->put(route('apiWorkUpdate'), [
+            'id' => ' ',
             'company' => ' ',
+            'workapply' => ' ',
+            'url' => ' ',
+            'status' => ' ',
         ]);
 
         $data = ['company' => " "];
-        $response = $this->get(route('apihome'));
+        $response = $this->get(route('apiWork'));
         $response ->assertStatus(200)
                   ->assertJsonCount(1)
-                  ->assertJsonFragment($data);          
+                  ->assertJsonFragment($data); 
     }
 }

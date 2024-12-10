@@ -16,6 +16,8 @@ return new class extends Migration
 
             $table->string("company");
             $table->string("workapply");
+            $table->string("url");
+            $table->enum("status",["completed","in progress"]);
 
             $table->timestamps();
         });

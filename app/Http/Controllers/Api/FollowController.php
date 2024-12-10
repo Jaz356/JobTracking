@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Work;
+use App\Models\Follow;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,17 +15,17 @@ class FollowController extends Controller
     public function index()
     {
         //
-        $work = Work::get();
-        return response()->json($work, 200);   
+        $follow = Follow::get();
+        return response()->json($follow, 200);   
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
+  //  public function create()
+   // {
         //
-    }
+    //}
 
     /**
      * Store a newly created resource in storage.
@@ -58,9 +59,6 @@ class FollowController extends Controller
             'work' => $work->load('follows'),
             ]);
 
-            $work->save();
-            return response()->json($work, 200);
-
     }
 
     /**
@@ -69,15 +67,17 @@ class FollowController extends Controller
     public function show(string $id)
     {
         //
+        $follow = Follow::find($id);
+        return response()->json($follow, 200);  
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
+   // public function edit(string $id)
+   // {
         //
-    }
+   // }
 
     /**
      * Update the specified resource in storage.
@@ -85,15 +85,15 @@ class FollowController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        $Work = Work::find($id);
+        $follow = Follow::find($id);
 
-        $Work->update([
-            'name' => $request->name,
-            'price' => $request->price,
+        $follow->update([
+            'news' => $request->news,
+            'work_id' => $request->work_id,
         ]);
 
-        $Work->save();
-        return response()->json($Work, 200);
+        $follow->save();
+        return response()->json($follow, 200);
     }
 
     /**
@@ -102,7 +102,7 @@ class FollowController extends Controller
     public function destroy(string $id)
     {
         //
-        $Work = Work::find($id);
-        $Work->delete();
+        $follow = follow::find($id);
+        $follow->delete();
     }
 }

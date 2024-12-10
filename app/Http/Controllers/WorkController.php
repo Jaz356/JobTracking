@@ -14,7 +14,7 @@ class WorkController extends Controller
     {
         //
         //$works = Work::get();
-        $works = Work::with('Folows')->get();
+        $works = Work::with('follows')->get();
         return view('home', compact('works'));
     }
 
