@@ -6,7 +6,6 @@ use Tests\TestCase;
 use App\Models\Work;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use function PHPUnit\Framework\assertJson;
 
 class WorkTest extends TestCase
 {
