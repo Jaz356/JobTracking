@@ -6,6 +6,7 @@ use Tests\TestCase;
 use App\Models\Work;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use function PHPUnit\Framework\assertJson;
 
 class WorkTest extends TestCase
 {
@@ -45,9 +46,8 @@ class WorkTest extends TestCase
     public function test_CheckIfCanUpdateEntryInWorkWithJsonFile(){
         $response = $this->post(route('apiCreateWork'),[
             'id' => ' ',
-            'company' => ' ',
+            'company' => '$company',
             'workapply' => ' ',
-            'url' => ' ',
             'status' => ' ',
         ]);
 
@@ -57,16 +57,15 @@ class WorkTest extends TestCase
                   ->assertJsonCount(0)
                   ->assertJsonFragment($data);
 
-        $response = $this->put(route('apiWorkUpdate'), [
+        $response = $this->put(route('apiWorkUpdate'),[
             'id' => ' ',
-            'company' => ' ',
+            'company' => '$company',
             'workapply' => ' ',
-            'url' => ' ',
             'status' => ' ',
         ]);
 
         $data = ['company' => " "];
-        $response = $this->get(route('apiWork'));
+        $response = $this->get(route('apiWorkUpdate'));
         $response ->assertStatus(200)
                   ->assertJsonCount(1)
                   ->assertJsonFragment($data); 
