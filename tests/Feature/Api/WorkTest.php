@@ -44,10 +44,10 @@ class WorkTest extends TestCase
 
     public function test_CheckIfCanUpdateEntryInWorkWithJsonFile(){
         $response = $this->post(route('apiCreateWork'),[
-            'id' => ' ',
+            'id' => '1',
             'company' => '$company',
-            'workapply' => ' ',
-            'status' => ' ',
+            'workapply' => '$workapply',
+            'status' => '$status',
         ]);
 
         $data = ['company' => " "]; 
@@ -57,10 +57,10 @@ class WorkTest extends TestCase
                   ->assertJsonFragment($data);
 
         $response = $this->put(route('apiWorkUpdate'),[
-            'id' => ' ',
+            'id' => '1',
             'company' => '$company',
-            'workapply' => ' ',
-            'status' => ' ',
+            'workapply' => '$workapply',
+            'status' => '$status',
         ]);
 
         $data = ['company' => " "];
