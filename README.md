@@ -29,6 +29,10 @@ Frontend Development: Design and implement the user interface using the chosen f
 API Development: Implement RESTful APIs for data exchange between the frontend and backend.
 Testing and Deployment: Conduct thorough testing, deploy the application, and ensure smooth operation.
 
+##ScreenShots
+
+![alt text](image.png)
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
