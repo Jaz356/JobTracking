@@ -16,8 +16,6 @@ protected $fillable = [
      'workapply',
      'status',
      'url',
-
-     
      ];
 
      //Relacion One-to-Many can Follow 
